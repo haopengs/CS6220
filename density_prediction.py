@@ -43,7 +43,7 @@ def run():
         date_time = pd.to_datetime(time)
         total_hours = (date_time - min_date).total_seconds() / 3600
         log_density = kde.score_samples([[longitude, latitude, total_hours]])
-        print(log_density)
+        # print(log_density)
         return np.exp(log_density)  # Convert log density to actual density
 
     # Streamlit layout
@@ -125,7 +125,13 @@ def run():
 
                     address_list = df_densities['Address'].tolist()
                     density_list = df_densities['Relative Density'].tolist()
+
+                    # make sure single value
+                    density_list = [x[0] if isinstance(
+                        x, np.ndarray) else x for x in density_list]
+
                     print(address_list)
+                    print(density_list)
                     print(df_densities['Relative Density'])
                     # Plotting
                     plt.figure(figsize=(10, 6))
