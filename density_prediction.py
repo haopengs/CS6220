@@ -136,7 +136,9 @@ def run():
                         bar_width = 0.2
                     try:
                         bars = plt.bar(address_list,
-                                       df_densities['Relative Density'], width=bar_width)
+                                       density_list, width=bar_width)
+                        # bars = plt.bar(address_list,
+                        #                df_densities['Relative Density'], width=bar_width)
                         plt.ylabel('Relative Crime Density')
                         plt.xticks(rotation=45)
 
