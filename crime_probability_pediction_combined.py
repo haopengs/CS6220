@@ -23,7 +23,7 @@ def run():
     df_split_3 = pd.read_csv("data/split_file_3.csv")
 
     # df_crime = pd.read_csv("data/crime_data_cleaned.csv")
-    df_combined = pd.concat([df_split_1, df_split_2, df_split_3])
+    df_crime = pd.concat([df_split_1, df_split_2, df_split_3])
     df_zipcode_accuracy = pd.read_csv('data/model_results_by_zipcode.csv')
     df_month_accuracy = pd.read_csv('data/model_results_by_month.csv')
 
