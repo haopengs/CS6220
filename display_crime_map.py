@@ -78,6 +78,7 @@ def run():
 
     # df_crime = pd.read_csv("data/crime_data_cleaned.csv")
     df_crime = pd.concat([df_split_1, df_split_2, df_split_3])
+    df_crime = df_crime[~df_crime.index.duplicated(keep='first')]
 
     df_crime['Offense Start DateTime'] = pd.to_datetime(
         df_crime['Offense Start DateTime'])
